@@ -31,11 +31,10 @@ public class CheckboxTests extends ConfigTests {
         SelenideElement secondCheck = $("#checkboxes").$("input",1);
         secondCheck.click();
         soft.assertTrue(secondCheck.isSelected());
-        sleep(1000);
         soft.assertAll();
     }
 
-    @Test(description = "check unchecked checkbox")
+    @Test(description = "check unchecked checkbox", dependsOnMethods = "uncheck", alwaysRun = true)
     public void check() {
         SelenideElement firstCheck = $("#checkboxes").$("input",0);
         firstCheck.click();

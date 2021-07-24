@@ -23,7 +23,7 @@ public class RadioButtonTests extends ConfigTests{
         open(baseUrl);
     }
 
-    @Test(description = "select yes option")
+    @Test(description = "select yes option", priority = 2)
     public void selectYes() {
         SelenideElement yesRadio = $(withText("Yes"));;
         yesRadio.click();
@@ -31,7 +31,7 @@ public class RadioButtonTests extends ConfigTests{
         soft.assertAll();
     }
 
-    @Test(description = "check if no option is available")
+    @Test(description = "check if no option is available",priority = 1)
     public void checkIfDisabled() {
         SelenideElement noRadio = $(withText("No"));
         soft.assertFalse(noRadio.isEnabled());
