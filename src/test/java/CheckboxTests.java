@@ -18,24 +18,28 @@ public class CheckboxTests extends ConfigTests {
 
     SoftAssert soft = new SoftAssert();
     public CheckboxTests(){
-        baseUrl= "http://the-internet.herokuapp.com/checkboxes";
+      //  baseUrl= "http://the-internet.herokuapp.com/checkboxes";
         reportsFolder="src/main/resources/CheckboxFailedTests";
     }
-    @BeforeTest
+    /* @BeforeTest
     public void beforeCheckboxTests() {
         open(baseUrl);
-    }
+    } */
 
-    @Test(description = "uncheck checked checkbox")
+    @Test(description = "uncheck checked checkbox", groups = {"FrontEnd"})
     public void uncheck() {
+        baseUrl= "http://the-internet.herokuapp.com/checkboxes";
+        open(baseUrl);
         SelenideElement secondCheck = $("#checkboxes").$("input",1);
         secondCheck.click();
         soft.assertTrue(secondCheck.isSelected());
         soft.assertAll();
     }
 
-    @Test(description = "check unchecked checkbox", dependsOnMethods = "uncheck", alwaysRun = true)
+    @Test(description = "check unchecked checkbox", dependsOnMethods = "uncheck", alwaysRun = true, groups = {"BackEnd"})
     public void check() {
+        baseUrl= "http://the-internet.herokuapp.com/checkboxes";
+        open(baseUrl);
         SelenideElement firstCheck = $("#checkboxes").$("input",0);
         firstCheck.click();
         soft.assertFalse(firstCheck.isSelected());
