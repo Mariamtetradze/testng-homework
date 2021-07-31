@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="parametrizationSuite" parallel="classes" thread-count="2">
+
+    <test name="test1">
+        <parameter name="fName" value="first"></parameter>
+        <parameter name="lName" value="first"></parameter>
+        <parameter name="number" value="12345"></parameter>
+        <classes>
+            <class name="ParametrizationTest">
+            </class>
+        </classes>
+    </test>
+    <test name="test2">
+        <parameter name="fName" value="second"></parameter>
+        <parameter name="lName" value="second"></parameter>
+        <parameter name="number" value="5678"></parameter>
+        <classes>
+            <class name="ParametrizationTest">
+            </class>
+        </classes>
+    </test>
+    <test name="test3">
+        <parameter name="fName" value="third"></parameter>
+        <parameter name="lName" value="third"></parameter>
+        <parameter name="number" value="91010"></parameter>
+        <classes>
+            <class name="ParametrizationTest">
+            </class>
+        </classes>
+    </test>
+</suite>
